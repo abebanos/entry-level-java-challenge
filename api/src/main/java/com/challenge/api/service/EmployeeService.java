@@ -3,10 +3,9 @@ package com.challenge.api.service;
 import com.challenge.api.model.Employee;
 import com.challenge.api.model.EmployeeImpl;
 import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Service;
-
 import java.time.Instant;
 import java.util.*;
+import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeService {
