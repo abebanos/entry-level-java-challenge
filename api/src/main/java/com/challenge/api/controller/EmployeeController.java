@@ -1,6 +1,7 @@
 package com.challenge.api.controller;
 
 import com.challenge.api.model.Employee;
+import com.challenge.api.model.EmployeeImpl;
 import com.challenge.api.service.EmployeeService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +37,7 @@ public class EmployeeController {
      * @return Requested Employee if exists
      */
     @GetMapping("/{uuid}")
-    public Employee getEmployeeByUuid(UUID uuid) {
+    public Employee getEmployeeByUuid(@PathVariable("uuid")UUID uuid) {
         Employee employee = employeeService.getEmployee(uuid);
         if (employee == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Employee not found");
@@ -51,7 +52,7 @@ public class EmployeeController {
      */
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Employee createEmployee(@RequestBody Employee employee) {
+    public Employee createEmployee(@RequestBody EmployeeImpl employee) {
         return employeeService.createEmployee(employee);
     }
 }
